@@ -37,4 +37,22 @@ public class StrictBuilderTest {
         .opt(Optional.absent())
         .build();
   }
+
+  @SuppressWarnings("CheckReturnValue")
+  @Test
+  public void canBuildWithDeepImmutablesDetection() {
+    ImmutableStrictDeep staged =
+      ImmutableStrictDeep.builder()
+                         .a("Test")
+                         .b(ImmutableStringWrapper.of("Another test"), 42)
+                         .build();
+
+    StringWrapper stringWrapper = staged.a();
+
+    ImmutableStrictDeep.builder()
+                       .a(stringWrapper)
+                       .b(stringWrapper, -42)
+                       .c("So many tests")
+                       .build();
+  }
 }

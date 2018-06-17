@@ -1003,7 +1003,7 @@ public final class ValueType extends TypeIntrospectionBase implements HasStyleIn
       }
     }
     return throwForNullPointer;
-    
+
   }
 
   public List<ValueAttribute> getImplementedAttributes() {
@@ -1698,7 +1698,7 @@ public final class ValueType extends TypeIntrospectionBase implements HasStyleIn
     }
     return gsonTypeTokens;
   }
-  
+
   public @Nullable ValueAttribute getGsonOther() {
     for (ValueAttribute a : attributes) {
       if (a.isGsonOther()) {
